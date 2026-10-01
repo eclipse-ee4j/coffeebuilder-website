@@ -32,6 +32,7 @@ jobs:
         run: |
           if grep -RInE \
             --exclude-dir=.git \
+            --exclude-dir=.github \
             --exclude-dir=public \
             --exclude-dir=themes \
             'io\.github\.coffee-builder|github\.com/coffee-builder|googletagmanager|GTM-[A-Z0-9]+|G-VX77LJJD1E|GTM-PNLQTR2J|Jakarta EE Essentials|coffee-builder-logo|Diego Silva Limaco' \
