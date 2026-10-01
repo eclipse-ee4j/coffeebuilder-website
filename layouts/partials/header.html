@@ -1,0 +1,15 @@
+{{/*
+  Solstice-compatible project header. The optional Foundation-wide featured
+  story feed is deliberately omitted from this documentation-only scaffold.
+*/}}
+{{ $header_wrapper_class := .Params.header_wrapper_class | default .Site.Params.header_wrapper_class }}
+
+{{ partial "google_tag_manager_no_script.html" . }}
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="header-wrapper {{ $header_wrapper_class }}" id="header">
+  {{ partial "toolbar.html" . }}
+  {{ partial "navbar.html" . }}
+  {{ partial "mobile_menu.html" . }}
+  {{ partial "mega_menu.html" . }}
+</header>
+

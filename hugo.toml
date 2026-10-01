@@ -1,0 +1,91 @@
+baseURL = "https://example.invalid/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Eclipse Coffee Builder for Jakarta EE™"
+theme = "hugo-solstice-theme"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "rss"]
+
+[[cascade]]
+  [cascade.params]
+    hide_sidebar = true
+    show_featured_footer = false
+
+[params]
+  description = "Eclipse Coffee Builder for Jakarta EE"
+  seo_title_suffix = " | Eclipse Coffee Builder for Jakarta EE™"
+  logo = "https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg"
+  logo_title = "Eclipse Coffee Builder for Jakarta EE™"
+  logo_width = "150"
+  eclipse_foundation_logo = "https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white.svg"
+  hide_call_for_action = true
+  hide_ad = true
+
+[[params.styles]]
+  url = "https://www.eclipse.org/public/css/neptune.css"
+  cache = false
+
+[[params.scripts]]
+  url = "https://www.eclipse.org/public/js/neptune/main.js"
+  cache = false
+  defer = true
+
+[[menus.main]]
+  name = "Home"
+  identifier = "home"
+  pageRef = "/"
+  weight = 10
+
+[[menus.main]]
+  name = "Documentation"
+  identifier = "documentation"
+  weight = 20
+
+[[menus.main]]
+  name = "Getting Started"
+  parent = "documentation"
+  pageRef = "/getting-started"
+  weight = 10
+
+[[menus.main]]
+  name = "Jakarta EE Minimal Archetype"
+  parent = "documentation"
+  pageRef = "/archetype"
+  weight = 20
+
+[[menus.main]]
+  name = "Maven Plugin"
+  parent = "documentation"
+  pageRef = "/maven-plugin"
+  weight = 30
+
+[[menus.main]]
+  name = "Goal Reference"
+  parent = "documentation"
+  pageRef = "/goals"
+  weight = 40
+
+[[menus.main]]
+  name = "Guides"
+  identifier = "guides"
+  weight = 30
+
+[[menus.main]]
+  name = "Recipes"
+  parent = "guides"
+  pageRef = "/recipes"
+  weight = 10
+
+[[menus.main]]
+  name = "Compatibility"
+  parent = "guides"
+  pageRef = "/compatibility"
+  weight = 20
+
+[[menus.main]]
+  name = "Community"
+  identifier = "community"
+  pageRef = "/community"
+  weight = 40
+
+
