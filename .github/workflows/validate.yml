@@ -32,9 +32,10 @@ jobs:
         run: |
           if grep -RInE \
             --exclude-dir=.git \
+            --exclude-dir=.github \
             --exclude-dir=public \
             --exclude-dir=themes \
-            'io\.github\.coffee-builder|github\.com/coffee-builder|googletagmanager|GTM-[A-Z0-9]+|Jakarta EE Essentials' \
+            'io\.github\.coffee-builder|github\.com/coffee-builder|googletagmanager|GTM-[A-Z0-9]+|G-VX77LJJD1E|GTM-PNLQTR2J|Jakarta EE Essentials|coffee-builder-logo|Diego Silva Limaco' \
             .; then
             echo "Obsolete project metadata or an analytics identifier was found."
             exit 1
@@ -52,7 +53,7 @@ jobs:
         shell: bash
         run: |
           if grep -RInEi \
-            'io\.github\.coffee-builder|github\.com/coffee-builder|googletagmanager|GTM-[A-Z0-9]+|Jakarta EE Essentials|Maven Central|stable release|>Download<' \
+            'io\.github\.coffee-builder|github\.com/coffee-builder|googletagmanager|GTM-[A-Z0-9]+|G-VX77LJJD1E|GTM-PNLQTR2J|Jakarta EE Essentials|coffee-builder-logo|Diego Silva Limaco|Maven Central|stable release|>Download<' \
             public; then
             echo "Generated output contains prohibited Phase 1 content."
             exit 1

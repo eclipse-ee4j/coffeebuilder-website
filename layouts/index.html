@@ -1,4 +1,145 @@
 {{ define "main" }}
-  {{ .Content }}
-{{ end }}
+<section id="overview" aria-labelledby="overview-heading" class="padding-top-30 padding-bottom-30">
+  <div class="row">
+    <div class="col-md-16">
+      <h2 id="overview-heading">Start small. Evolve with purpose.</h2>
+      <p class="lead">Eclipse Coffee Builder for Jakarta EE™ helps developers start with a small, understandable Jakarta EE application and evolve it incrementally through focused Maven operations.</p>
+      <p><strong>Coffee Builder generates the foundation. The developer builds the application.</strong></p>
+    </div>
+    <aside class="col-md-8" aria-labelledby="development-status-heading">
+      <div class="alert alert-info" id="development-status">
+        <h2 id="development-status-heading" class="h4">Development status</h2>
+        <p>Eclipse Coffee Builder is incubating. The current development line is <code>0.1.0-SNAPSHOT</code>; it is not a stable, published release.</p>
+      </div>
+    </aside>
+  </div>
 
+  <div class="btn-group margin-top-20" role="group" aria-label="Project actions">
+    <a class="btn btn-primary" href="{{ "getting-started/" | relLangURL }}">Getting Started</a>
+    <a class="btn btn-default" href="https://github.com/eclipse-ee4j/coffeebuilder">View Source</a>
+    <a class="btn btn-default" href="{{ "maven-plugin/" | relLangURL }}">Explore the Maven Plugin</a>
+    <a class="btn btn-default" href="{{ "archetype/" | relLangURL }}">Explore the Minimal Archetype</a>
+    <a class="btn btn-default" href="{{ "community/" | relLangURL }}">Join the Community</a>
+  </div>
+</section>
+
+<section id="tools" aria-labelledby="tools-heading" class="padding-top-30 padding-bottom-30">
+  <h2 id="tools-heading">Two complementary tools</h2>
+  <div class="row">
+    <div class="col-sm-12">
+      <article class="panel panel-default">
+        <div class="panel-body">
+          <h3>Jakarta EE Minimal Archetype</h3>
+          <p>Creates a clean, minimal Jakarta EE project foundation that developers can inspect, understand, and extend.</p>
+          <p><a href="{{ "archetype/" | relLangURL }}">Explore the Minimal Archetype <span aria-hidden="true">→</span></a></p>
+        </div>
+      </article>
+    </div>
+    <div class="col-sm-12">
+      <article class="panel panel-default">
+        <div class="panel-body">
+          <h3>Coffee Builder Maven Plugin</h3>
+          <p>Incrementally adds selected capabilities to an existing Jakarta EE Maven project as the application grows.</p>
+          <p><a href="{{ "maven-plugin/" | relLangURL }}">Explore the Maven Plugin <span aria-hidden="true">→</span></a></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="workflow" aria-labelledby="workflow-heading" class="padding-top-30 padding-bottom-30">
+  <h2 id="workflow-heading">An incremental workflow</h2>
+  <p>Begin with the foundation, add only the capabilities the application needs, and keep the resulting project under developer control.</p>
+  <ol class="list-unstyled" aria-label="Coffee Builder workflow">
+    <li>
+      <div class="panel panel-default text-center">
+        <div class="panel-body">
+          <p class="small text-uppercase">Step 1</p>
+          <h3>Jakarta EE Minimal Archetype</h3>
+        </div>
+      </div>
+      <p class="text-center" aria-hidden="true">↓</p>
+    </li>
+    <li>
+      <div class="panel panel-default text-center">
+        <div class="panel-body">
+          <p class="small text-uppercase">Step 2</p>
+          <h3>Minimal Jakarta EE project</h3>
+        </div>
+      </div>
+      <p class="text-center" aria-hidden="true">↓</p>
+    </li>
+    <li>
+      <div class="panel panel-default text-center">
+        <div class="panel-body">
+          <p class="small text-uppercase">Step 3</p>
+          <h3>Coffee Builder Maven Plugin</h3>
+          <ul class="list-inline" aria-label="Capabilities that can be added">
+            <li>Persistence</li>
+            <li>Domain model</li>
+            <li>REST / OpenAPI</li>
+            <li>Faces / PrimeFaces</li>
+            <li>Runtime configuration</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center" aria-hidden="true">↓</p>
+    </li>
+    <li>
+      <div class="panel panel-default text-center">
+        <div class="panel-body">
+          <p class="small text-uppercase">Result</p>
+          <h3>Developer-owned Jakarta EE application</h3>
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="principles" aria-labelledby="principles-heading" class="padding-top-30 padding-bottom-30">
+  <h2 id="principles-heading">Project principles</h2>
+  <div class="row">
+    <div class="col-sm-8">
+      <h3>Incremental</h3>
+      <p>Add capabilities as the application evolves.</p>
+    </div>
+    <div class="col-sm-8">
+      <h3>Composable</h3>
+      <p>Use the focused operations that each project needs.</p>
+    </div>
+    <div class="col-sm-8">
+      <h3>Portable</h3>
+      <p>Keep the application grounded in Jakarta EE and Maven.</p>
+    </div>
+    <div class="col-sm-12">
+      <h3>Understandable</h3>
+      <p>Make generated code and configuration available to inspect and change.</p>
+    </div>
+    <div class="col-sm-12">
+      <h3>Developer-owned</h3>
+      <p>Leave architecture and implementation decisions with the development team.</p>
+    </div>
+  </div>
+</section>
+
+<section id="what-it-is-not" aria-labelledby="what-it-is-not-heading" class="padding-top-30 padding-bottom-30">
+  <div class="row">
+    <div class="col-md-16">
+      <h2 id="what-it-is-not-heading">What Coffee Builder is not</h2>
+      <ul>
+        <li>It does not replace Jakarta EE.</li>
+        <li>It does not hide generated code.</li>
+        <li>It does not impose a complete application architecture.</li>
+        <li>It does not replace developer decisions.</li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <div class="well">
+        <h3>Keep building</h3>
+        <p>Inspect the generated foundation, adapt it to the application, and continue with the Jakarta EE and Maven tools you already use.</p>
+        <p><a class="btn btn-primary" href="{{ "getting-started/" | relLangURL }}">Getting Started</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
