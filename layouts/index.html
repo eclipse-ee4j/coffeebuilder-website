@@ -8,19 +8,23 @@
     </div>
     <aside class="col-md-8" aria-labelledby="development-status-heading">
       <div class="alert alert-info" id="development-status">
-        <h2 id="development-status-heading" class="h4">Development status</h2>
-        <p>Eclipse Coffee Builder is incubating. The current development line is <code>0.1.0-SNAPSHOT</code>; it is not a stable, published release.</p>
+        <div>
+          <h2 id="development-status-heading" class="h4 margin-top-0">Development status</h2>
+          <p class="margin-bottom-0">Eclipse Coffee Builder is incubating. The current development line is <code>0.1.0-SNAPSHOT</code>; it is not a stable, published release.</p>
+        </div>
       </div>
     </aside>
   </div>
 
-  <div class="btn-group margin-top-20" role="group" aria-label="Project actions">
-    <a class="btn btn-primary" href="{{ "getting-started/" | relLangURL }}">Getting Started</a>
-    <a class="btn btn-default" href="https://github.com/eclipse-ee4j/coffeebuilder">View Source</a>
-    <a class="btn btn-default" href="{{ "maven-plugin/" | relLangURL }}">Explore the Maven Plugin</a>
-    <a class="btn btn-default" href="{{ "archetype/" | relLangURL }}">Explore the Minimal Archetype</a>
-    <a class="btn btn-default" href="{{ "community/" | relLangURL }}">Join the Community</a>
-  </div>
+  <nav class="margin-top-20" aria-label="Project actions">
+    <p class="margin-bottom-10"><a class="btn btn-primary" href="{{ "getting-started/" | relLangURL }}">Getting Started</a></p>
+    <ul class="list-inline margin-bottom-0">
+      <li class="margin-bottom-10"><a class="btn btn-default" href="https://github.com/eclipse-ee4j/coffeebuilder">View Source</a></li>
+      <li class="margin-bottom-10"><a class="btn btn-default" href="{{ "maven-plugin/" | relLangURL }}">Explore the Maven Plugin</a></li>
+      <li class="margin-bottom-10"><a class="btn btn-default" href="{{ "archetype/" | relLangURL }}">Explore the Minimal Archetype</a></li>
+      <li class="margin-bottom-10"><a class="btn btn-default" href="{{ "community/" | relLangURL }}">Join the Community</a></li>
+    </ul>
+  </nav>
 </section>
 
 <section id="tools" aria-labelledby="tools-heading" class="padding-top-30 padding-bottom-30">
