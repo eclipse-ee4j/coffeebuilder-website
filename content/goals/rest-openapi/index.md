@@ -33,8 +33,6 @@ Configures server-side Java generation from an OpenAPI document using the OpenAP
 - The ignore file suppresses generated `RestApplication.java` and `RestResourceRoot.java`, allowing the application to retain its own JAX-RS bootstrap.
 - Resolves a build-helper plugin version through Maven artifact metadata and adds an `add-source` execution during `generate-sources`.
 
-> **Current snapshot caveat:** The generated build-helper execution does not contain an explicit `sources` path, even though the OpenAPI generator writes to `target/generated-sources/openapi`. Review the resulting POM and generated-source compilation in the target project.
-
 No API or model tests and no generated POM are requested by the embedded generator configuration. The goal establishes generation configuration; it does not configure or certify an application runtime.
 
 ### Example

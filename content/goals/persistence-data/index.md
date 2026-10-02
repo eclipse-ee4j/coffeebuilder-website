@@ -57,14 +57,10 @@ Creates the persistence foundation, adds a persistence unit and datasource, and 
 - Creates or updates `src/main/resources/META-INF/persistence.xml` and its persistence unit.
 - Uses persistence descriptor version 3.0 for Jakarta EE 10 and 3.2 for Jakarta EE 11.
 - Adds the datasource declaration selected above.
-- Adds Jakarta Persistence/CDI dependencies when absent and attempts to add the catalog-matched JDBC driver dependency.
+- Adds Jakarta Persistence/CDI dependencies when absent and the catalog-matched JDBC driver dependency.
 - For Jakarta EE 10, also generates a CDI `PersistenceProvider.java` for `EntityManager` production.
 
-Recognized URL families in the current embedded catalog are H2, HSQLDB, MySQL, PostgreSQL, Oracle, SQL Server, Derby, and MariaDB. The catalog supplies driver coordinates and the implementation then queries Maven artifact metadata for a version. If that lookup fails, the current goal logs the error and can finish without adding the driver; review the resulting POM. An unrecognized URL prefix does not produce a catalog-backed datasource class or driver dependency.
-
-> **Current snapshot caveat:** The Jakarta EE 10 `PersistenceProvider` template currently fixes its `@PersistenceContext` unit name to `example-pu` instead of substituting `persistence-unit-name`. Review and align that generated value before building when the names differ.
-
-> **Class-mode caveat:** The current `DataSourceProvider.java` template can fail while rendering datasource properties, with the goal logging the template error instead of failing the Maven invocation. Confirm that the provider file was actually created when using `declare=class`.
+Recognized URL families in the current embedded catalog are H2, HSQLDB, MySQL, PostgreSQL, Oracle, SQL Server, Derby, and MariaDB. The catalog supplies driver coordinates and the implementation then queries Maven artifact metadata for a version. An unrecognized URL prefix does not produce a catalog-backed datasource class or driver dependency.
 
 ### Example
 
@@ -108,7 +104,7 @@ Adds or configures a datasource when the persistence foundation already exists. 
 ### Effects
 
 - Creates or updates `persistence.xml` through the shared descriptor helper and makes the named persistence unit reference the datasource.
-- Adds the selected datasource declaration and attempts to add the catalog-matched JDBC driver dependency.
+- Adds the selected datasource declaration and the catalog-matched JDBC driver dependency.
 - Updates `pom.xml`; it does not recreate the broader API/provider foundation supplied by `add-persistence`.
 
 ### Example

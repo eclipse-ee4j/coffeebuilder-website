@@ -127,13 +127,11 @@ Combines entity and form-definition JSON files to generate PrimeFaces CRUD scree
 
 ### Effects
 
-- Attempts to resolve a current `org.primefaces:primefaces` version through Maven artifact metadata and adds it with the `jakarta` classifier when absent.
+- Resolves a current `org.primefaces:primefaces` version through Maven artifact metadata and adds it with the `jakarta` classifier when absent.
 - Generates PrimeFaces CRUD `.xhtml` pages under `src/main/webapp`.
 - Generates CDI managed beans under the derived `app.faces` package.
 - Creates `src/main/resources/messages.properties`.
 - References the pre-existing domain models and repository contracts in generated backing code.
-
-If the PrimeFaces metadata lookup fails, the current implementation logs the error and can finish without adding the dependency. Review `pom.xml` before building the generated screens.
 
 The current [entity](https://github.com/eclipse-ee4j/coffeebuilder/blob/develop/coffee-builder-maven-plugin/examples/entities.json) and [form](https://github.com/eclipse-ee4j/coffeebuilder/blob/develop/coffee-builder-maven-plugin/examples/forms.json) examples illustrate paired inputs. They are not a substitute for the later full input-file reference.
 
