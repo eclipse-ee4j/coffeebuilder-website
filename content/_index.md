@@ -5,4 +5,5 @@ tagline = "Build the foundation. Keep control of your application."
 hide_page_title = true
 hide_sidebar = true
 hide_seo_title_suffix = true
+hide_breadcrumb = true
 +++
