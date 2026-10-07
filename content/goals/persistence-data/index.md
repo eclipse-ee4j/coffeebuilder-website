@@ -18,11 +18,23 @@ For `asadmin`, use `profile` to identify the Maven profile containing the Payara
 
 Datasource properties use comma-separated `name:value` pairs:
 
-```shell
+```bash
 -Dproperties=ssl:true,schema:inventory
 ```
 
 No escaping convention is defined by the current parser.
+
+## Catalog-backed JDBC configuration {#jdbc-catalog}
+
+Coffee Builder uses its embedded JDBC catalog to match the configured URL with a datasource class and driver dependency. Catalog entries can also supply a fixed dependency version and default URL parameters.
+
+The plugin parameter's declared `url` default remains `jdbc:h2:mem:test;DB_CLOSE_DELAY=-1`. The current H2 catalog also defines `MODE=LEGACY`, so the effective URL written to the datasource configuration is:
+
+```text
+jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=LEGACY
+```
+
+Catalog defaults are added only when the URL does not already contain that parameter. Parameter names are compared case-insensitively, so an explicit value such as `MODE=PostgreSQL` or `mode=PostgreSQL` takes precedence over the catalog default.
 
 ## add-persistence {#add-persistence}
 
@@ -60,11 +72,11 @@ Creates the persistence foundation, adds a persistence unit and datasource, and 
 - Adds Jakarta Persistence/CDI dependencies when absent and the catalog-matched JDBC driver dependency.
 - For Jakarta EE 10, also generates a CDI `PersistenceProvider.java` for `EntityManager` production.
 
-Recognized URL families in the current embedded catalog are H2, HSQLDB, MySQL, PostgreSQL, Oracle, SQL Server, Derby, and MariaDB. The catalog supplies driver coordinates and the implementation then queries Maven artifact metadata for a version. An unrecognized URL prefix does not produce a catalog-backed datasource class or driver dependency.
+Recognized URL families in the current embedded catalog are H2, HSQLDB, MySQL, PostgreSQL, Oracle, SQL Server, Derby, and MariaDB. The catalog supplies driver coordinates, the datasource class, and a fixed driver version where the catalog defines one. An unrecognized URL prefix cannot supply the required catalog-backed datasource configuration.
 
 ### Example
 
-```shell
+```bash
 mvn org.eclipse.coffeebuilder:coffee-builder-maven-plugin:0.1.0-SNAPSHOT:add-persistence \
   -Ddatasource-name=inventory \
   -Dpersistence-unit-name=inventoryPU \
@@ -109,7 +121,7 @@ Adds or configures a datasource when the persistence foundation already exists. 
 
 ### Example
 
-```shell
+```bash
 mvn org.eclipse.coffeebuilder:coffee-builder-maven-plugin:0.1.0-SNAPSHOT:add-datasource \
   -Ddatasource-name=reporting \
   -Dpersistence-unit-name=inventoryPU \
@@ -148,7 +160,7 @@ The package root is derived from the target project's coordinates. Use [`add-dom
 
 From a project containing `config/entities.json`:
 
-```shell
+```bash
 mvn org.eclipse.coffeebuilder:coffee-builder-maven-plugin:0.1.0-SNAPSHOT:add-entities \
   -Dentities-file=config/entities.json
 ```
