@@ -27,15 +27,17 @@ The plugin also contains Maven's generated [`help`]({{< relref "/goals/help" >}}
 
 ## Invocation {#invocation}
 
-```shell
+```bash
 mvn org.eclipse.coffeebuilder:coffee-builder-maven-plugin:0.1.0-SNAPSHOT:<goal> \
   -D<option>=<value>
 ```
+
+Commands in this reference use Bash syntax. Maven property names are the exact names shown in each goal's parameter table.
 
 Maven-injected project, session, and component fields are intentionally excluded from the parameter tables. Return to the [Maven Plugin overview]({{< relref "/maven-plugin" >}}) for the operating model and target-project expectations.
 
 ## Inputs and generated code {#inputs}
 
-`add-entities` and `add-domain-models` share an `entities-file` input. `add-forms-from-entities` combines that entity definition with a `forms-file`. This phase describes how each goal uses those inputs; a complete input-file schema belongs in a later reference phase. Current sample files are available in the canonical repository's [plugin examples directory](https://github.com/eclipse-ee4j/coffeebuilder/tree/develop/coffee-builder-maven-plugin/examples).
+`add-entities` and `add-domain-models` share an `entities-file` input. See [generated model fields]({{< relref "/goals/application-model" >}}#generated-model-fields) for the current enum and list behavior. `add-forms-from-entities` combines that entity definition with a `forms-file`; its [form field presentation reference]({{< relref "/goals/faces" >}}#form-field-presentation) documents component inference and supported overrides. These sections cover the inputs relevant to the current goals rather than defining a complete input-file schema. Current sample files are available in the canonical repository's [plugin examples directory](https://github.com/eclipse-ee4j/coffeebuilder/tree/develop/coffee-builder-maven-plugin/examples).
 
 Generated Java, descriptors, pages, and POM changes remain part of the target project and are fully editable.

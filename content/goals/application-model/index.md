@@ -34,9 +34,44 @@ For each configured entity, the goal generates:
 
 It also adds MapStruct configuration—including annotation processing—to `pom.xml` when absent, and adds the Jakarta Transactions API when needed. The current implementation resolves a MapStruct version through Maven metadata while it prepares that configuration, so first execution may require repository access.
 
+### Generated model fields {#generated-model-fields}
+
+Domain model field types follow the entity definition. In particular:
+
+| Entity definition | Generated domain field |
+|---|---|
+| `"type": "enum"` with `values` | The enum type generated from the entity and field name. |
+| `"list": true` | `List<T>`, where `T` is the configured field type. |
+| `"type": "enum"` with `"list": true` | A list of the generated enum type. |
+
+For example:
+
+```json
+{
+  "Issue": {
+    "fields": {
+      "status": {
+        "type": "enum",
+        "values": ["OPEN", "CLOSED"]
+      },
+      "labels": {
+        "type": "String",
+        "list": true
+      }
+    }
+  }
+}
+```
+
+This produces a domain `status` field using the generated `IssueEntityStatus` enum and a `List<String>` `labels` field.
+
+### Persistent identity {#persistent-identity}
+
+When an entity definition identifies an ID field, its generated domain model uses that non-null ID for equality. Separate transient instances with null IDs are not treated as equal, and the model's hash remains stable when an ID is assigned.
+
 ### Example
 
-```shell
+```bash
 mvn org.eclipse.coffeebuilder:coffee-builder-maven-plugin:0.1.0-SNAPSHOT:add-domain-models \
   -Dentities-file=config/entities.json
 ```
